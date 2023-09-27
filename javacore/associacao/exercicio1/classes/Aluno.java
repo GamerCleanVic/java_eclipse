@@ -13,6 +13,7 @@ public class Aluno {
 	}
 	
 	public void print() {
+		System.out.println("-------------------Relatório alunos-------------------");
 		System.out.println("Nome: "+this.nome);
 		System.out.println("Idade: "+this.idade);
 		if(this.seminario != null) {

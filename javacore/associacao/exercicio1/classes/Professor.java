@@ -11,6 +11,16 @@ public class Professor {
 	}	
 	public Professor() {
 	}
+	
+	public void print() {
+		System.out.println("\n-------------------Relatório de professor-------------------");
+		System.out.println("Nome do professor: "+this.nome);
+		System.out.println("Especialidade do professor: "+this.especialidade);
+		System.out.print("Seminário participantes ");
+		for(Seminario seminario : seminarios) {
+			System.out.println(seminario.getTitulo()+", ");
+		}
+	}
 
 	public String getNome() {
 		return this.nome;

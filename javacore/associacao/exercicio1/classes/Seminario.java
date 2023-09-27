@@ -13,7 +13,14 @@ public class Seminario {
 	}
 	
 	public void print() {
-		System.out.println("Título do seminário: "+titulo);
+		System.out.println("\n-------------------Relatório seminários-------------------");
+		System.out.println("Título do seminário: "+this.titulo);
+		System.out.println("Professor palestrante: "+this.professor.getNome());
+		System.out.println("Local, Rua: "+this.local.getRua()+", Bairro: "+this.local.getBairro());
+		System.out.println("\n----Alunos participantes----");
+		for(Aluno aluno : alunos) {
+			System.out.println(aluno.getNome());
+		}
 	}
 	
 	public String getTitulo() {

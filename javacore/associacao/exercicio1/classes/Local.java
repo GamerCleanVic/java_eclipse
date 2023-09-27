@@ -10,6 +10,12 @@ public class Local {
 	}	
 	public Local() {
 	}
+	
+	public void print() {
+		System.out.println("-------------------Relatório de local-------------------");
+		System.out.println("Rua: "+this.rua);
+		System.out.println("Bairro: "+this.rua);
+	}
 
 	public String getRua() {
 		return this.rua;
