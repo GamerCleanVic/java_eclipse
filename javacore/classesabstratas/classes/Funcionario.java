@@ -1,9 +1,31 @@
 package br.com.abc.javacore.classesabstratas.classes;
 
-public class Funcionario {
-	private String nome;
-	private String clt;
-	private double salario;
+public abstract class Funcionario extends Pessoa{	
+	protected String clt;
+	protected double salario;
+	
+	public Funcionario() {
+		
+	}
+	public Funcionario(String nome, String clt, double salario) {
+		this.nome = nome;
+		this.clt = clt;
+		this.salario = salario;
+	}
+	
+	@Override
+	public String toString() {
+		return "Funcionario [\nnome: " + nome + 
+				"\nclt: " + clt +
+				"\nsalario: " + salario + "\n]\n";
+	}	
+	@Override
+	public void imprime() {
+		// TODO Auto-generated method stub
+		System.out.println("Dentro do método imprime de Funcionário");
+	}
+	
+	public abstract void calculaSalario();		
 	
 	public String getNome(){
 		return nome;
