@@ -1,6 +1,5 @@
 package br.com.abc.javacore.polimorfismo.test;
 
-import br.com.abc.javacore.polimorfismo.classes.Funcionario;
 import br.com.abc.javacore.polimorfismo.classes.Gerente;
 import br.com.abc.javacore.polimorfismo.classes.RelatorioPagamento;
 import br.com.abc.javacore.polimorfismo.classes.Vendedor;
@@ -14,11 +13,9 @@ public class PolimorfismoTest {
 		//System.out.print("------------------------------");
 		//relatorio.relatorioPagamentoVendedor(v);
 		relatorio.relatorioPagamentoGenerico(g);
-		System.out.print("------------------------------");
-		relatorio.relatorioPagamentoGenerico(v);
 		
-		Funcionario f = g;
-		System.out.println("################################");
-		System.out.println(f.getSalario());
+		System.out.print("------------------------------");
+		relatorio.relatorioPagamentoGenerico(v);		 		
+		
 	}
 }
