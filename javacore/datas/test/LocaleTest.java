@@ -13,7 +13,7 @@ public class LocaleTest {
 		 * eu - inglês
 		 * us - Estados Unidos
 		 * */
-		Locale locale = new Locale("it", "IT");
+		/*Locale locale = new Locale("it", "IT");
 		Locale locale2 = new Locale("it","CH");
 		Calendar c = new Calendar.getInstance();
 		c.set(2015, Calendar.DECEMBER, 21);
@@ -23,6 +23,6 @@ public class LocaleTest {
 		
 		System.out.println(locale.getDisplayLanguage(locale));
 		System.out.println(locale2.getDisplayLanguage(locale2));
-		System.out.println(locale2.getDisplayCountry(locale2));
+		System.out.println(locale2.getDisplayCountry(locale2)); */
 	}
 }
