@@ -13,8 +13,8 @@ public class ExpressoesRegularesTest {
 		// \W - tu q ñ for caracter de palavra
 		// []
 		
-		String regex = "[a-zA-Z]";
-		String texto = "cafeBABE";
+		String regex = "0[xX][0-9a-fA-F]";
+		String texto = "12 0x 0X 0xFFABC 0x10G 0x1";
 		
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(texto);
@@ -25,7 +25,7 @@ public class ExpressoesRegularesTest {
 		System.out.println("posicoes encontradas");
 		
 		while(matcher.find()) {
-			System.out.print(matcher.start() +", ");
+			System.out.print(matcher.start() +" "+matcher.group()+", ");
 		}
 	}
 }
