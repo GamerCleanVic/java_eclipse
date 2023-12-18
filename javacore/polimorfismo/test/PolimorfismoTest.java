@@ -9,13 +9,13 @@ public class PolimorfismoTest {
 		Gerente g = new Gerente("Osvaldo", 5000, 2000);
 		Vendedor v = new Vendedor("Yuri", 2000, 20000);
 		RelatorioPagamento relatorio = new RelatorioPagamento();
-		//relatorio.relatorioPagamentoGerente(g);
-		//System.out.print("------------------------------");
-		//relatorio.relatorioPagamentoVendedor(v);
+		// relatorio.relatorioPagamentoGerente(g);
+		// System.out.print("------------------------------");
+		// relatorio.relatorioPagamentoVendedor(v);
 		relatorio.relatorioPagamentoGenerico(g);
-		
+
 		System.out.print("------------------------------");
-		relatorio.relatorioPagamentoGenerico(v);		 		
-		
+		relatorio.relatorioPagamentoGenerico(v);
+
 	}
 }

@@ -5,13 +5,13 @@ public class Carro {
 	public final Comprador comprador = new Comprador();
 	private String nome;
 	private String marca;
-	
+
 	@Override
 	public String toString() {
 		return "Carro [nome=" + nome + ", marca=" + marca + "]";
-	}	
+	}
 
-	/*@return the comprador*/
+	/* @return the comprador */
 	public Comprador getComprador() {
 		return comprador;
 	}
@@ -19,16 +19,18 @@ public class Carro {
 	public String getNome() {
 		return this.nome;
 	}
-	public void setNome(String nome){
+
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	/*@return the marca*/
+
+	/* @return the marca */
 	public String getMarca() {
 		return marca;
 	}
-	/*@param marca the marca to set*/
+
+	/* @param marca the marca to set */
 	public void setMarca(String marca) {
 		this.marca = marca;
-	}	
+	}
 }

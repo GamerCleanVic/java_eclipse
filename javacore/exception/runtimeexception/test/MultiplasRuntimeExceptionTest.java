@@ -8,20 +8,21 @@ public class MultiplasRuntimeExceptionTest {
 	public static void main(String[] args) {
 		try {
 			throw new IllegalArgumentException();
-		}catch(IllegalArgumentException | IndexOutOfBoundsException | ArithmeticException e) {
+		} catch (IllegalArgumentException | IndexOutOfBoundsException | ArithmeticException e) {
 			System.out.println("Dentro do IllegalArgumentException");
 		}
 		System.out.println("Fim do programa");
-		
+
 		try {
 			talvezLanceException();
-		}catch(Exception e) {
-			
+		} catch (Exception e) {
+
 		}
-		
+
 	}
-	public static void talvezLanceException() throws SQLException, IOException, AWTException{
-		
+
+	public static void talvezLanceException() throws SQLException, IOException, AWTException {
+
 	}
-	
+
 }

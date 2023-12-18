@@ -10,19 +10,16 @@ public class ResourceBundleTest {
 		System.out.println(rb.getString("hello"));
 		System.out.println(rb.getString("good.morning"));
 		System.out.println(rb.getString("show"));
-		rb = ResourceBundle.getBundle("messages", new Locale("en","US"));
-		System.out.println("-----\n"+rb.getString("hello"));
+		rb = ResourceBundle.getBundle("messages", new Locale("en", "US"));
+		System.out.println("-----\n" + rb.getString("hello"));
 		System.out.println(rb.getString("good.morning"));
-		
+
 		/*
-		 * Locale locale = new Locale("fr", "CA");
-		 * ResourceBundle.getBundle("messages", Locale);
+		 * Locale locale = new Locale("fr", "CA"); ResourceBundle.getBundle("messages",
+		 * Locale);
 		 * 
-		 *  messages_fr_CA.properties
-		 *  messages_fr.properties
-		 *  messages_pt_BR.properties
-		 *  messages_pt.properties
-		 *  messages.properties
-		 * */
+		 * messages_fr_CA.properties messages_fr.properties messages_pt_BR.properties
+		 * messages_pt.properties messages.properties
+		 */
 	}
 }

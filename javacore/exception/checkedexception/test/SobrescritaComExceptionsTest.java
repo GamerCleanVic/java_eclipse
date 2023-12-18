@@ -9,7 +9,7 @@ public class SobrescritaComExceptionsTest {
 		Pessoa p = new Pessoa();
 		try {
 			f.salvar();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

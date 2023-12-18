@@ -8,11 +8,9 @@ public class ClienteTest {
 		Cliente cliente2 = new Cliente();
 		Cliente cliente3 = new Cliente();
 		/*
-		System.out.println("Exibindo a quantidade de parcelas possíveis");
-		for(int parcela : cliente.getParcelas()) {
-			System.out.print(parcela+", ");
-		}
-		*/
-		System.out.println("Tamanho: "+Cliente.getParcelas().length);
+		 * System.out.println("Exibindo a quantidade de parcelas possíveis"); for(int
+		 * parcela : cliente.getParcelas()) { System.out.print(parcela+", "); }
+		 */
+		System.out.println("Tamanho: " + Cliente.getParcelas().length);
 	}
 }
