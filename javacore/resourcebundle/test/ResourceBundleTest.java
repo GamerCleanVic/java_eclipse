@@ -13,6 +13,7 @@ public class ResourceBundleTest {
 		rb = ResourceBundle.getBundle("messages", new Locale("en", "US"));
 		System.out.println("-----\n" + rb.getString("hello"));
 		System.out.println(rb.getString("good.morning"));
+		System.out.println(rb.getString("show"));
 
 		/*
 		 * Locale locale = new Locale("fr", "CA"); ResourceBundle.getBundle("messages",
