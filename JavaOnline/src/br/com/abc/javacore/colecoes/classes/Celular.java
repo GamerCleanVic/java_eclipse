@@ -16,6 +16,11 @@ public class Celular {
 	//Para x diferente de null x.equals(null) tem que retornar false.
 	
 	@Override
+	public int hashCode(){
+		return IMEI != null ? IMEI.hashCode() : 1;
+	}
+	
+	@Override
 	public boolean equals(Object obj) {
 		if(obj == null){
 			return false;
