@@ -9,13 +9,10 @@ public class ListTest {
 		List<String> nomes2 = new ArrayList<>();
 		nomes.add("William");
 		nomes.add("DevDojo");
-		nomes.add("William2");
-		nomes.add("DevDojo2");
-		/*
-		 * System.out.println("Size: "+nomes.size());
-		 * System.out.println(nomes.remove("DevDojo"));
-		 * System.out.println("Size: "+nomes.size());
-		 */
+		nomes2.add("William2");
+		nomes2.add("DevDojo2");
+		
+		nomes.clear();
 		nomes.addAll(nomes2);
 		int size = nomes.size();
 		for(int i = 0; i < size; i++) {
