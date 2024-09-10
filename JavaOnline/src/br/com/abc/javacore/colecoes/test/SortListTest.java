@@ -12,12 +12,22 @@ public class SortListTest {
 		nomes.add("DevDojo");
 		nomes.add("Brenon");
 		nomes.add("Bruno");
-		nomes.add(0, "Anne");
-		
+		nomes.add(0, "Anne");		
 		Collections.sort(nomes);
+		
+		List<Double> numeros = new ArrayList<>();
+		numeros.add(1.5);
+		numeros.add(1.3);
+		numeros.add(1.9);
+		numeros.add(2d);		
+		Collections.sort(numeros);
 		
 		for(String nome : nomes) {
 			System.out.println(nome);
+		}
+		
+		for (Double numero : numeros) {
+			System.out.println(numero);
 		}
 	}
 }
