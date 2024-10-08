@@ -1,5 +1,7 @@
 package br.com.abc.javacore.colecoes.classes;
 
+import java.util.Comparator;
+
 public class Celular {
 	private String nome;
 	private String IMEI;
