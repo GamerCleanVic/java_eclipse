@@ -15,6 +15,6 @@ public class ClassesLocaisTest {
 	
 	public static void main (String[] args) {
 		ClassesLocaisTest externa = new ClassesLocaisTest();
-		externa.fazAlgumaCoisa();;
+		externa.fazAlgumaCoisa();
 	}
 }
