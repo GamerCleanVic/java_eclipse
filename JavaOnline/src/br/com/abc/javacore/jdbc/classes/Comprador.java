@@ -11,13 +11,11 @@ public class Comprador {
 		
 	}
 	public Comprador(Integer id, String cpf, String nome) {
-		super();
 		this.id = id;
 		this.cpf = cpf;
 		this.nome = nome;
 	}	
 	public Comprador(String cpf, String nome) {
-		super();
 		this.cpf = cpf;
 		this.nome = nome;
 	}
