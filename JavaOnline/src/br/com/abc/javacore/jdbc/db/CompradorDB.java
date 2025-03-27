@@ -1,8 +1,11 @@
 package br.com.abc.javacore.jdbc.db;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.abc.javacore.jdbc.classes.Comprador;
 import br.com.abc.javacore.jdbc.conn.ConexaoFactory;
@@ -56,4 +59,40 @@ public class CompradorDB {
 			e.printStackTrace();
 		}
 	}
+  public static List<Comprador> selectAll(){
+		String sql = "select * from comprador";
+		Connection conn = ConexaoFactory.getConexao();
+		List<Comprador> compradorList = new ArrayList<>();
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+		  while(rs.next()){
+			  compradorList.add(new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
+		  }
+			ConexaoFactory.close(conn, stmt, rs);
+      return compradorList;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+  }
+  public static List<Comprador> searchByName(String nome){
+		String sql = "select * from comprador where nome like '%"+nome+"%'";
+		Connection conn = ConexaoFactory.getConexao();
+		List<Comprador> compradorList = new ArrayList<>();
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+		  while(rs.next()){
+			  compradorList.add(new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
+		  }
+			ConexaoFactory.close(conn, stmt, rs);
+    return compradorList;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+}
 }
