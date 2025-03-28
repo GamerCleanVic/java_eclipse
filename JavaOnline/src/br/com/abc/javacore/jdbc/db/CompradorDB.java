@@ -2,6 +2,7 @@ package br.com.abc.javacore.jdbc.db;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -78,21 +79,43 @@ public class CompradorDB {
 		return null;
   }
   public static List<Comprador> searchByName(String nome){
-		String sql = "select * from comprador where nome like '%"+nome+"%'";
+		String sql = "select id, nome, cpf from comprador where nome like '%"+nome+"%'";
 		Connection conn = ConexaoFactory.getConexao();
 		List<Comprador> compradorList = new ArrayList<>();
 		try {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
-		  while(rs.next()){
-			  compradorList.add(new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
-		  }
+			while(rs.next()){
+				compradorList.add(new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
+			}
 			ConexaoFactory.close(conn, stmt, rs);
-    return compradorList;
+			return compradorList;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
-}
+  }
+  public static void selectMetaData() {
+	  String sql = "select * from comprador";
+	  Connection conn = ConexaoFactory.getConexao();
+	  try {
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		ResultSetMetaData rsmd =  rs.getMetaData();
+		rs.next();
+		int qtdColunas = rsmd.getColumnCount();
+		System.out.println("Quantidade de coluna: "+qtdColunas);
+		for(int i = 1; i <= qtdColunas; i++) {
+			System.out.println("tabela: "+rsmd.getTableName(i));
+			System.out.println("Nome coluna: "+rsmd.getColumnName(i));
+			System.out.println("Tamanho coluna: "+rsmd.getColumnDisplaySize(i));
+		}
+		
+		ConexaoFactory.close(conn, stmt, rs);
+	  } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+  }
 }

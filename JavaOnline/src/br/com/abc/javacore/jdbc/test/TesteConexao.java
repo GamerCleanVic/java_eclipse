@@ -9,9 +9,10 @@ public class TesteConexao {
 	public static void main (String[] args) {
 //		atualizar();
 //	    List<Comprador> listaComprador = selecionarTudo();
-	    List<Comprador> listaComprador2 = buscarPorNome("oao");
+//	    List<Comprador> listaComprador2 = buscarPorNome("oao");
 //	    System.out.println(listaComprador);
-	    System.out.println(listaComprador2);
+//	    System.out.println(listaComprador2);
+		CompradorDB.selectMetaData();
 	}
 	public static void inserir() {
 		Comprador comprador = new Comprador("111.111.111-20","Priscila");
