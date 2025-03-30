@@ -12,7 +12,8 @@ public class TesteConexao {
 //	    List<Comprador> listaComprador2 = buscarPorNome("oao");
 //	    System.out.println(listaComprador);
 //	    System.out.println(listaComprador2);
-		CompradorDB.selectMetaData();
+//		CompradorDB.selectMetaData();
+		CompradorDB.checkDriverStatus();
 	}
 	public static void inserir() {
 		Comprador comprador = new Comprador("111.111.111-20","Priscila");

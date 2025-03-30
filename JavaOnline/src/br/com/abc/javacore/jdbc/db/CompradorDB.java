@@ -1,12 +1,15 @@
 package br.com.abc.javacore.jdbc.db;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.mysql.cj.protocol.Resultset;
 
 import br.com.abc.javacore.jdbc.classes.Comprador;
 import br.com.abc.javacore.jdbc.conn.ConexaoFactory;
@@ -116,6 +119,34 @@ public class CompradorDB {
 	  } catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+	  }
+  }
+  
+  public static void checkDriverStatus () {
+	  Connection conn = ConexaoFactory.getConexao();
+	  try {
+		  DatabaseMetaData dbmd = conn.getMetaData();
+		  if (dbmd.supportsResultSetType(ResultSet.TYPE_FORWARD_ONLY)) {
+			  System.out.println("Suporta TYPE_FORWARD_ONLY!");
+			  if (dbmd.supportsResultSetConcurrency(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE)) {
+				  System.out.println(" e também suporta CONCUR_UPDATABLE!");
+			  }			  
+		  }
+		  if (dbmd.supportsResultSetType(ResultSet.TYPE_SCROLL_INSENSITIVE)) {
+			  System.out.println("Suporta TYPE_TYPE_SCROLL_INSENSITIVE!");
+			  if (dbmd.supportsResultSetConcurrency(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE)) {
+				  System.out.println(" e também suporta CONCUR_UPDATABLE!");
+			  }			  
+		  }
+		  if (dbmd.supportsResultSetType(ResultSet.TYPE_SCROLL_SENSITIVE)) {
+			  System.out.println("Suporta TYPE_SCROLL_SENSITIVE!");
+			  if (dbmd.supportsResultSetConcurrency(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE)) {
+				  System.out.println(" e também suporta CONCUR_UPDATABLE!");
+			  }			  
+		  }
+		  ConexaoFactory.close(conn);
+	  }catch (SQLException e) {
+		  e.printStackTrace();
+	  }
   }
 }
