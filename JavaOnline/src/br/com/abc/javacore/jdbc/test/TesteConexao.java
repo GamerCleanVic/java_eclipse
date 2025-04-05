@@ -13,7 +13,8 @@ public class TesteConexao {
 //	    System.out.println(listaComprador);
 //	    System.out.println(listaComprador2);
 //		CompradorDB.selectMetaData();
-		CompradorDB.checkDriverStatus();
+//		CompradorDB.checkDriverStatus();
+		CompradorDB.testTypeScroll();
 	}
 	public static void inserir() {
 		Comprador comprador = new Comprador("111.111.111-20","Priscila");

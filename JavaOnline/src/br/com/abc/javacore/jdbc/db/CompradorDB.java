@@ -9,8 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.cj.protocol.Resultset;
-
 import br.com.abc.javacore.jdbc.classes.Comprador;
 import br.com.abc.javacore.jdbc.conn.ConexaoFactory;
 
@@ -126,9 +124,9 @@ public class CompradorDB {
 	  Connection conn = ConexaoFactory.getConexao();
 	  try {
 		  DatabaseMetaData dbmd = conn.getMetaData();
-		  if (dbmd.supportsResultSetType(ResultSet.TYPE_FORWARD_ONLY)) {
+		  if (dbmd.supportsResultSetType(ResultSet.TYPE_SCROLL_INSENSITIVE)) {
 			  System.out.println("Suporta TYPE_FORWARD_ONLY!");
-			  if (dbmd.supportsResultSetConcurrency(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE)) {
+			  if (dbmd.supportsResultSetConcurrency(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE)) {
 				  System.out.println(" e também suporta CONCUR_UPDATABLE!");
 			  }			  
 		  }
@@ -148,5 +146,27 @@ public class CompradorDB {
 	  }catch (SQLException e) {
 		  e.printStackTrace();
 	  }
+  }
+  
+  public static void testTypeScroll(){
+		String sql = "select * from comprador";
+		Connection conn = ConexaoFactory.getConexao();
+		try {
+			Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			ResultSet rs = stmt.executeQuery(sql);
+			if(rs.last()){
+				System.out.println("Última linha "+new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
+				System.out.println("Número última linha: "+rs.getRow());
+			}
+			System.out.println("Retornou para a primeira linha "+rs.first());
+			System.out.println("Número primeira linha: "+rs.getRow());
+			rs.absolute(4);
+			System.out.println("Linha 4, "+new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
+			
+			ConexaoFactory.close(conn, stmt, rs);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
   }
 }
