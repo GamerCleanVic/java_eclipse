@@ -162,6 +162,16 @@ public class CompradorDB {
 			System.out.println("Número primeira linha: "+rs.getRow());
 			rs.absolute(4);
 			System.out.println("Linha 4, "+new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
+			rs.relative(-1);
+			System.out.println("Linha 3, "+new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
+			System.out.println(rs.isLast());
+			System.out.println(rs.isFirst());
+			rs.afterLast();
+			System.out.println("----------------------");
+			while(rs.previous()) {
+				System.out.println(new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
+			}
+			
 			
 			ConexaoFactory.close(conn, stmt, rs);
 		} catch (SQLException e) {
