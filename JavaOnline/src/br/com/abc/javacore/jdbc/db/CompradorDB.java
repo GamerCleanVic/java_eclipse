@@ -178,5 +178,43 @@ public class CompradorDB {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-  }
+  }  
+  
+  public static void updateNomesToLowerCase() {
+	  String sql = "select * from comprador";
+		Connection conn = ConexaoFactory.getConexao();		
+		try {
+			DatabaseMetaData dbmd = conn.getMetaData();
+			
+			Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			ResultSet rs = stmt.executeQuery(sql);
+			System.out.println(dbmd.updatesAreDetected(rs.TYPE_SCROLL_INSENSITIVE));
+			System.out.println(dbmd.insertsAreDetected(rs.TYPE_SCROLL_INSENSITIVE));
+			System.out.println(dbmd.deletesAreDetected(rs.TYPE_SCROLL_INSENSITIVE));
+		  if(rs.next()){
+			  rs.updateString("nome", rs.getString("nome").toUpperCase());
+			  
+//			  rs.cancelRowUpdates();
+			  rs.updateRow();
+//			  if(rs.rowUpdated()) {
+//				  System.out.println("Linha atualizada!");
+//			  }
+		  }
+		  rs.absolute(2);
+		  String nome = rs.getString("nome");
+		  rs.moveToInsertRow();
+		  rs.updateString("nome", nome.toUpperCase());
+		  rs.updateString("cpf", "999.999.999-99");
+		  rs.insertRow();
+		  rs.moveToCurrentRow();
+		  System.out.println(rs.getString("nome")+" row"+rs.getRow());
+		  rs.absolute(7);
+		  rs.deleteRow();
+		  
+		ConexaoFactory.close(conn, stmt, rs);    
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+  }  
 }

@@ -14,7 +14,8 @@ public class TesteConexao {
 //	    System.out.println(listaComprador2);
 //		CompradorDB.selectMetaData();
 //		CompradorDB.checkDriverStatus();
-		CompradorDB.testTypeScroll();
+//		CompradorDB.testTypeScroll();
+		CompradorDB.updateNomesToLowerCase();
 	}
 	public static void inserir() {
 		Comprador comprador = new Comprador("111.111.111-20","Priscila");
