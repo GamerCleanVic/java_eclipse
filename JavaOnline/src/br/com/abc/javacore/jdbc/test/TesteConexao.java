@@ -15,7 +15,10 @@ public class TesteConexao {
 //		CompradorDB.selectMetaData();
 //		CompradorDB.checkDriverStatus();
 //		CompradorDB.testTypeScroll();
-		CompradorDB.updateNomesToLowerCase();
+//		CompradorDB.updateNomesToLowerCase();
+//		System.out.println(CompradorDB.searchByName("oao"));
+//		CompradorDB.updatePreparedStatement(new Comprador(1, "011.011.011-01", "Preparated Statement da Silva"));
+		System.out.println(CompradorDB.searchByNameCallableStatement("%oao%"));
 	}
 	public static void inserir() {
 		Comprador comprador = new Comprador("111.111.111-20","Priscila");
